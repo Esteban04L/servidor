@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTRY ART</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+     <style>
+      .footer {
+            display: flex; /* Activa flexbox */
+            flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            gap: 40px; /* Espaciado entre elementos */
+            padding: 20px;
+            background-color: #333; /* Fondo oscuro */
+            color: #fff; /* Texto blanco */
+            font-size: 14px;
+            text-align: center; /* Por si el texto necesita alineación */
+        }
+        
+        .footer p {
+            margin: 0; /* Elimina márgenes */
+            flex: 1; /* Ocupa espacio disponible */
+        }
+        
+        .social-links {
+            display: flex; /* Flexbox para los enlaces */
+            gap: 10px; /* Espaciado entre botones */
+        }
+        
+        .social-links a {
+            padding: 8px 15px; /* Tamaño de los botones */
+            text-decoration: none; /* Sin subrayado */
+            color: #fff; /* Texto blanco */
+            /*background-color: #007bff; /* Fondo azul */*/
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Efecto al pasar el ratón */
+        }
+        
+        .social-links a:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo-container">
+        <img src="../images/IMG_2620.PNG" alt="Logo de Country">
+    </div>
+</header>
+
+<nav class="navbar">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <ul id="menu">
+        <li><a href="index.html"><em>Home</em></a></li>
+        <li><a href="productos.html"><em>Productos</em></a></li>
+        <li><a href="contacto.html"><em>Contáctanos</em></a></li>
+        <li><a href="clases.html"><em>Clases</em></a></li>
+        <li><a href="carrito.html"><em>Carrito</em></a></li>
+        <li><a href="http://localhost:3000/CountryArt-pages/registrousuario.html"><em>Registrate</em></a></li>
+    </ul>
+</nav>
+
+<main class="main-container"> <!-- Añadido el contenedor principal -->
+    <section class="about-us">
+        <h1>¿Quiénes Somos?</h1>
+        <p>
+            Country Art es un negocio dedicado a la creación artesanal de piezas de madera decoradas 
+            con pintura acrílica de alta calidad. Producimos artículos únicos, combinando la belleza natural 
+            de la madera con el arte y la creatividad, logrando piezas que transmiten calidez y estilo.
+        </p>
+        <img src="../images/WhatsApp Image 2024-10-06 at 8.27.22 PM.jpeg" alt="Producto Artesanal" style="margin-top: 20px;">
+
+    </section>
+
+    <section class="unique-features">
+        <h2>¿Qué hace Country Art único?</h2>
+        <p>
+            Cada pieza es cuidadosamente trabajada a mano utilizando técnicas de pintura acrílica. 
+            La dedicación artesanal garantiza productos exclusivos y de alta calidad, reflejando nuestra 
+            pasión por el diseño y la personalización.
+        </p>
+    </section>
+
+    <section class="products">
+        <h3>Productos y Servicios</h3>
+        <div class="product-grid">
+            <ol>
+                <li><strong>Accesorios decorativos:</strong> Portallaves, cuadros y cajas.</li>
+                <li><strong>Mobiliario pintado a mano:</strong> Mesitas, bandejas, y percheros.</li>
+                <li><strong>Decoración estacional:</strong> Adornos para Navidad y aniversarios.</li>
+                <li><strong>Pedidos personalizados:</strong> Adaptación según el cliente.</li>
+            </ol>
+            <img src="../images/WhatsApp Image 2024-10-06 at 8.27.23 PM.jpeg" alt="Producto Artesanal">
+        </div>
+    </section>
+
+    <section class="commitment">
+        <h3>Compromiso con la calidad</h3>
+        <ol>
+            <li>Uso de pintura acrílica de alta calidad.</li>
+            <li>Atención artesanal en cada detalle del proceso.</li>
+            <li>Promoción del uso de madera sostenible.</li>
+        </ol>
+    </section>
+
+    <section class="gallery">
+        <h2>Galería</h2>
+        <div class="gallery-grid">
+            <img src="../images/WhatsApp Image 2024-10-13 at 7.25.13 PM.jpeg" alt="Producto 3">
+            <img src="../images/WhatsApp Image 2024-10-06 at 8.42.34 PM.jpeg" alt="Producto 4" >
+            <img src="../images/WhatsApp Image 2024-10-13 at 7.01.25 PM.jpeg" alt="Producto 5" >
+            <img src="../images/WhatsApp Image 2024-10-13 at 7.01.45 PM.jpeg" alt="Producto 6">
+        </div>
+    </section>
+
+    <section class="vision">
+        <h2>Visión y Valores</h2>
+        <p style="margin-bottom: 20px;">
+            Country Art se enfoca en ofrecer experiencias únicas, aportando encanto y carácter a los hogares. 
+            Valoramos la cercanía con nuestros clientes, creando piezas que reflejen su estilo. Cada compra 
+            apoya a una empresa local comprometida con la creatividad y la sostenibilidad.
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+          <p>© 2024 Country Art. Todos los derechos reservados. </p>
+          <div class="social-links">
+              <a href="https://www.instagram.com/countryart_uio/" target="_blank" aria-label="Instagram">Instagram</a>
+              <a href="https://www.facebook.com/nataguzmancountryART?mibextid=ZbWKwL" target="_blank" aria-label="Facebook">Facebook</a>
+          </div>
+          <p>countryart.uio@gmail.com</p>
+</footer>
+
+</body>
+</html>

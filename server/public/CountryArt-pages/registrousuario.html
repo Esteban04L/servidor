@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px auto; /* Espaciado respecto al menú */
+        }
+
+        .form-wrapper {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-wrapper h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+     <style>
+        .footer {
+              display: flex; /* Activa flexbox */
+              flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+              justify-content: center; /* Centra horizontalmente */
+              align-items: center; /* Centra verticalmente */
+              gap: 40px; /* Espaciado entre elementos */
+              padding: 20px;
+              background-color: #333; /* Fondo oscuro */
+              color: #fff; /* Texto blanco */
+              font-size: 14px;
+              text-align: center; /* Por si el texto necesita alineación */
+          }
+          
+          .footer p {
+              margin: 0; /* Elimina márgenes */
+              flex: 1; /* Ocupa espacio disponible */
+          }
+          
+          .social-links {
+              display: flex; /* Flexbox para los enlaces */
+              gap: 10px; /* Espaciado entre botones */
+          }
+          
+          .social-links a {
+              padding: 8px 15px; /* Tamaño de los botones */
+              text-decoration: none; /* Sin subrayado */
+              color: #fff; /* Texto blanco */
+              /*background-color: #007bff; /* Fondo azul */*/
+              border-radius: 5px; /* Bordes redondeados */
+              font-size: 14px;
+              font-weight: bold;
+              transition: background-color 0.3s ease; /* Efecto al pasar el ratón */
+          }
+          
+          .social-links a:hover {
+              background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+          }
+      </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../images/IMG_2620.PNG" alt="Logo de Country">
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul id="menu">
+            <li><a href="index.html"><em>Home</em></a></li>
+            <li><a href="productos.html"><em>Productos</em></a></li>
+            <li><a href="contacto.html"><em>Contáctanos</em></a></li>
+            <li><a href="clases.html"><em>Clases</em></a></li>
+            <li><a href="carrito.html"><em>Carrito</em></a></li>
+            <li><a href="http://localhost:3000/CountryArt-pages/registrousuario.html"><em>Regístrate</em></a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <div class="form-wrapper">
+            <h1>Registro de Usuario</h1>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="firstName">Nombre:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Apellido:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Sexo:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Seleccione</option>
+                        <option value="male">Masculino</option>
+                        <option value="female">Femenino</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Edad:</label>
+                    <input type="number" id="age" name="age" min="0" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Fecha de Nacimiento:</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita el envío por defecto del formulario
+
+            const firstName = form.elements['firstName'].value.trim();
+            const lastName = form.elements['lastName'].value.trim();
+            const email = form.elements['email'].value.trim();
+            const address = form.elements['address'].value.trim();
+            const phone = form.elements['phone'].value.trim();
+            const gender = form.elements['gender'].value;
+            const age = form.elements['age'].value;
+            const birthDate = form.elements['birthDate'].value;
+            const username = form.elements['username'].value.trim();
+            const password = form.elements['password'].value;
+            const confirmPassword = form.elements['confirmPassword'].value;
+
+            // Validación de contraseñas
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            // Validación adicional
+            if (!firstName || !lastName || !email || !address || !phone || !gender || !age || !birthDate || !username) {
+                alert('Por favor, completa todos los campos.');
+                return;
+            }
+
+            // Datos a enviar al servidor
+            const userData = {
+                firstName,
+                lastName,
+                email,
+                address,
+                phone,
+                gender,
+                age,
+                birthDate,
+                username,
+                password,
+            };
+
+            try {
+                // Enviar datos al servidor
+                const response = await fetch('/save-user', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData),
+                });
+
+                if (response.ok) {
+                    alert('¡Registrado correctamente!'); // Mensaje de éxito
+                    form.reset(); // Reinicia el formulario
+                } else {
+                    alert('Error al registrar. Intenta nuevamente.');
+                }
+            } catch (error) {
+                console.error('Error al enviar los datos:', error);
+                alert('Ocurrió un error al procesar el registro.');
+            }
+        });
+    </script>
+
+
+
+    <footer class="footer">
+        <p>© 2024 Country Art. Todos los derechos reservados. </p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/countryart_uio/" target="_blank" aria-label="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/nataguzmancountryART?mibextid=ZbWKwL" target="_blank" aria-label="Facebook">Facebook</a>
+        </div>
+        <p>countryart.uio@gmail.com</p>
+    </footer>
+</body>
+</html>

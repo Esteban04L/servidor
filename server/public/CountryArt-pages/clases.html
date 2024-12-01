@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases - Country Art</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+    .footer {
+            display: flex; /* Activa flexbox */
+            flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            gap: 40px; /* Espaciado entre elementos */
+            padding: 20px;
+            background-color: #333; /* Fondo oscuro */
+            color: #fff; /* Texto blanco */
+            font-size: 14px;
+            text-align: center; /* Por si el texto necesita alineación */
+        }
+        
+        .footer p {
+            margin: 0; /* Elimina márgenes */
+            flex: 1; /* Ocupa espacio disponible */
+        }
+        
+        .social-links {
+            display: flex; /* Flexbox para los enlaces */
+            gap: 10px; /* Espaciado entre botones */
+        }
+        
+        .social-links a {
+            padding: 8px 15px; /* Tamaño de los botones */
+            text-decoration: none; /* Sin subrayado */
+            color: #fff; /* Texto blanco */
+            /*background-color: #007bff; /* Fondo azul */*/
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Efecto al pasar el ratón */
+        }
+        
+        .social-links a:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo-container">
+        <img src="../images/IMG_2620.PNG" alt="Logo de Country">
+    </div>
+</header>
+
+<nav class="navbar">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <ul id="menu">
+        <li><a href="index.html"><em>Home</em></a></li>
+        <li><a href="productos.html"><em>Productos</em></a></li>
+        <li><a href="contacto.html"><em>Contáctanos</em></a></li>
+        <li><a href="clases.html"><em>Clases</em></a></li>
+        <li><a href="carrito.html"><em>Carrito</em></a></li>
+        <li><a href="http://localhost:3000/CountryArt-pages/registrousuario.html"><em>Registrate</em></a></li>
+    </ul>
+</nav>
+
+<main class="main-container"> <!-- Contenedor principal -->
+    <header style="background-color: rgb(216, 193, 238);">
+        <h1>Clases</h1>
+    </header>
+
+    <section class="flex-container">
+        <div>
+            <p>
+                En Country Art, ofrecemos clases prácticas diseñadas para todos los niveles de habilidad, desde principiantes hasta artistas más avanzados.
+                Nuestras clases se centran en las técnicas de pintura acrílica aplicadas a artículos de madera, proporcionando una experiencia creativa y enriquecedora.
+            </p>
+        </div>
+        <img src="../images/WhatsApp Image 2024-10-06 at 8.29.36 PM.jpeg" alt="Clases 1" width="480">
+    </section>
+
+    <section class="flex-container">
+        <img src="../images/WhatsApp Image 2024-10-13 at 6.58.06 PM.jpeg" alt="Clases 2" width="550">
+        <div class="flex-column">
+            <h2>1. Introducción a la Pintura Acrílica:</h2>
+            <p>
+                <strong>Descripción:</strong> Este curso básico está diseñado para aquellos que son nuevos en la pintura acrílica. Aprenderás sobre los materiales, las herramientas y las técnicas esenciales para comenzar.
+            </p>
+            <h3>Temas a tratar:</h3>
+            <ol>
+                <li>Introducción a los diferentes tipos de pintura acrílica.</li>
+                <li>Cómo preparar la superficie de la madera para pintar.</li>
+                <li>Técnicas básicas de pincelado y mezcla de colores.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="flex-container">
+        <img src="../images/361626423_744937557637043_4729341192298540153_n.jpg" alt="Clases 3" width="450">
+    </section>
+</main>
+
+<footer class="footer">
+          <p>© 2024 Country Art. Todos los derechos reservados. </p>
+          <div class="social-links">
+              <a href="https://www.instagram.com/countryart_uio/" target="_blank" aria-label="Instagram">Instagram</a>
+              <a href="https://www.facebook.com/nataguzmancountryART?mibextid=ZbWKwL" target="_blank" aria-label="Facebook">Facebook</a>
+          </div>
+          <p>countryart.uio@gmail.com</p>
+</footer>
+
+</body>
+</html>

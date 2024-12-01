@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    
+    <!-- Estilos específicos para el carrito y la compra -->
+    <style>
+        /* Contenedor del carrito */
+        #cart-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Estilo para mostrar el total de la compra */
+        #total-price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Estilo para el botón de finalizar compra */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Contenedor de los productos en el carrito */
+        #cart-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Máximo 4 productos por fila */
+            gap: 20px; /* Espacio entre los productos */
+            justify-items: center; /* Centra los productos */
+            margin-top: 20px;
+        }
+
+        /* Estilos para los elementos de cada producto */
+        .cart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item img {
+            width: 100px;  /* Tamaño reducido para las imágenes */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .cart-item p {
+            margin: 5px 0;
+        }
+    </style>
+     <style>
+        .footer {
+              display: flex; /* Activa flexbox */
+              flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+              justify-content: center; /* Centra horizontalmente */
+              align-items: center; /* Centra verticalmente */
+              gap: 40px; /* Espaciado entre elementos */
+              padding: 20px;
+              background-color: #333; /* Fondo oscuro */
+              color: #fff; /* Texto blanco */
+              font-size: 14px;
+              text-align: center; /* Por si el texto necesita alineación */
+          }
+          
+          .footer p {
+              margin: 0; /* Elimina márgenes */
+              flex: 1; /* Ocupa espacio disponible */
+          }
+          
+          .social-links {
+              display: flex; /* Flexbox para los enlaces */
+              gap: 10px; /* Espaciado entre botones */
+          }
+          
+          .social-links a {
+              padding: 8px 15px; /* Tamaño de los botones */
+              text-decoration: none; /* Sin subrayado */
+              color: #fff; /* Texto blanco */
+              /*background-color: #007bff; /* Fondo azul */*/
+              border-radius: 5px; /* Bordes redondeados */
+              font-size: 14px;
+              font-weight: bold;
+              transition: background-color 0.3s ease; /* Efecto al pasar el ratón */
+          }
+          
+          .social-links a:hover {
+              background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+          }
+      </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../images/IMG_2620.PNG" alt="Logo de Country">
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul id="menu">
+            <li><a href="index.html"><em>Home</em></a></li>
+            <li><a href="productos.html"><em>Productos</em></a></li>
+            <li><a href="contacto.html"><em>Contáctanos</em></a></li>
+            <li><a href="clases.html"><em>Clases</em></a></li>
+            <li><a href="carrito.html"><em>Carrito</em></a></li>
+            <li><a href="http://localhost:3000/CountryArt-pages/registrousuario.html"><em>Registrate</em></a></li>
+        </ul>
+    </nav>
+
+    <section id="cart-container">
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items">
+            <!-- Aquí se mostrarán los productos del carrito -->
+        </div>
+        <div id="total-price">
+            <!-- Aquí se mostrará el precio total -->
+        </div>
+        <button onclick="checkout()">Finalizar Compra</button>
+    </section>
+
+    <script>
+        // Cargar carrito desde el localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Función para actualizar y mostrar el carrito
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = ''; // Limpiar los elementos anteriores
+
+            let total = 0;
+
+            cart.forEach(item => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('cart-item');
+
+                const imgElement = document.createElement('img');
+                imgElement.src = item.image;
+                imgElement.alt = item.name;
+
+                const nameElement = document.createElement('p');
+                nameElement.textContent = item.name;
+
+                const quantityElement = document.createElement('p');
+                quantityElement.textContent = `Cantidad: ${item.quantity}`;
+
+                const priceElement = document.createElement('p');
+                priceElement.textContent = `Precio: $${(item.price * item.quantity).toFixed(2)}`;
+
+                productDiv.appendChild(imgElement);
+                productDiv.appendChild(nameElement);
+                productDiv.appendChild(quantityElement);
+                productDiv.appendChild(priceElement);
+
+                cartItemsContainer.appendChild(productDiv);
+
+                total += item.price * item.quantity;
+            });
+
+            const totalPriceContainer = document.getElementById('total-price');
+            totalPriceContainer.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Función para finalizar la compra
+        function checkout() {
+            alert('Gracias por tu compra');
+            localStorage.removeItem('cart'); // Limpiar el carrito después de la compra
+            updateCart(); // Actualizar la visualización del carrito vacío
+        }
+
+        // Actualizar el carrito al cargar la página
+        updateCart();
+    </script>
+
+
+    <footer class="footer">
+        <p>© 2024 Country Art. Todos los derechos reservados. </p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/countryart_uio/" target="_blank" aria-label="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/nataguzmancountryART?mibextid=ZbWKwL" target="_blank" aria-label="Facebook">Facebook</a>
+        </div>
+        <p>countryart.uio@gmail.com</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+/* Estilo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fae8c4; /* Color de fondo  */
+    color: #333;
+}
+
+/* Navbar */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(209, 153, 247);
+}
+
+li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: #070706;
+    font-size: 1.1em;
+    transition: background 0.3s;
+}
+
+
+a:hover {
+    background-color: rgb(100, 59, 93);
+    color: white;
+}
+
+/* Imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    /* Quitar sombra de las imágenes */
+    box-shadow: none; /* Elimina la sombra */
+}
+
+/* Header */
+.header {
+    background-image: url('../images/c1743170-4ae3-4ed1-81b0-5826aa56ee50.__CR0,0,970,600_PT0_SX970_V1___.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.logo-container img {
+    max-width: 300px;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1200px; /* Ancho máximo para el contenedor principal */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 20px; /* Espaciado a los lados */
+    background-color: #FFF8DC; /* Color de fondo cálido (Cornsilk) */
+}
+
+/* Contenedores flexibles */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+/* Texto */
+h1, h2, h3 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+p, ol {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+/* Product Section */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Media Queries: Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    ul {
+        flex-direction: column;
+    }
+
+    a {
+        font-size: 1em;
+    }
+
+    .flex-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    p, ol {
+        font-size: 1.1em;
+    }
+
+    img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p, ol {
+        font-size: 1em;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+/* Navbar */
+.navbar {
+    position: relative;
+}
+
+.menu-toggle {
+    display: none; /* Oculta el checkbox */
+}
+
+.hamburger {
+    display: none; /* Oculta el icono en pantallas grandes */
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Estilos para el menú desplegable */
+#menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row; /* Alineación en fila para pantallas grandes */
+}
+
+.menu-toggle:checked + .hamburger + #menu {
+    display: flex; /* Muestra el menú cuando el checkbox está marcado */
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Muestra el icono en pantallas pequeñas */
+    }
+
+    #menu {
+        display: none; /* Oculta el menú por defecto en pantallas pequeñas */
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        width: 100%; /* Ocupa todo el ancho */
+        background-color: rgb(209, 153, 247); /* Fondo del menú desplegable */
+    }
+
+    #menu li {
+        text-align: center; /* Alinea el texto al centro */
+        padding: 1em 0; /* Espaciado para los elementos del menú */
+    }
+
+    .menu-toggle:checked + .hamburger + #menu {
+        display: flex; /* Muestra el menú cuando el checkbox está marcado */
+    }
+
+    a {
+        text-align: left; /* Alinea el texto a la izquierda en el menú */
+        display: block; /* Hace que el enlace ocupe todo el ancho */
+        padding: 1em; /* Espaciado dentro de los enlaces */
+        color: #070706; /* Color del texto */
+    }
+
+    a:hover {
+        background-color: rgb(100, 59, 93); /* Fondo al hacer hover */
+    }
+}
+
+<style>
+    /* Estilo del modal */
+    .modal {
+        display: none; /* Ocultarlo por defecto */
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 70%;
+        max-width: 800px;
+        position: relative;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+    }
+
+    /* Estilo del carrusel */
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    #main-image {
+        width: 100%;
+        max-width: 500px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .thumbnail-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .thumbnail {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+    .thumbnail:hover {
+        border-color: #007BFF;
+    }
+
+    /* Botón comprar */
+    .buy-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .buy-button:hover {
+        background-color: #218838;
+    }
+</style>

@@ -1,0 +1,33 @@
+
+Nombre: Esteban
+Apellido: López
+Correo: juanelopezg04@gmail.com
+Dirección: Quito
+Teléfono: 593 998079618
+Sexo: male
+Edad: 24
+Fecha de Nacimiento: 2000-09-04
+Nombre de Usuario: Esteban1
+-----------------------------
+
+Nombre: Esteban
+Apellido: López
+Correo: juanelopezg04@outlook.com
+Dirección: Quito
+Teléfono: 0998079618
+Sexo: male
+Edad: 24
+Fecha de Nacimiento: 2000-09-04
+Nombre de Usuario: Esteban2
+-----------------------------
+
+Nombre: Esteban
+Apellido: López
+Correo: juanelopezg04@gmail.com
+Dirección: Quito
+Teléfono: 0998079618
+Sexo: male
+Edad: 24
+Fecha de Nacimiento: 2000-09-04
+Nombre de Usuario: Esteban3
+-----------------------------

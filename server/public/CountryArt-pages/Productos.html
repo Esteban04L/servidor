@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+        /* Estilo general */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fae8c4;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;   
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(209, 153, 247);
+        }
+
+        li {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            padding: 1em;
+            text-decoration: none;
+            color: #070706;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background-color: rgb(100, 59, 93);
+            color: white;
+        }
+
+        .header {
+            background-image: url('../images/c1743170-4ae3-4ed1-81b0-5826aa56ee50.__CR0,0,970,600_PT0_SX970_V1___.png');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid black;
+        }
+
+        .logo-container img {
+            max-width: 300px;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: #FFF8DC;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-grid-item {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .image-grid-item img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .image-grid-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: bold;
+        }
+
+       .footer {
+            display: flex; /* Activa flexbox */
+            flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            gap: 40px; /* Espaciado entre elementos */
+            padding: 20px;
+            background-color: #333; /* Fondo oscuro */
+            color: #fff; /* Texto blanco */
+            font-size: 14px;
+            text-align: center; /* Por si el texto necesita alineación */
+        }
+        
+        .footer p {
+            margin: 0; /* Elimina márgenes */
+            flex: 1; /* Ocupa espacio disponible */
+        }
+        
+        .social-links {
+            display: flex; /* Flexbox para los enlaces */
+            gap: 10px; /* Espaciado entre botones */
+        }
+        
+        .social-links a {
+            padding: 8px 15px; /* Tamaño de los botones */
+            text-decoration: none; /* Sin subrayado */
+            color: #fff; /* Texto blanco */
+            /*background-color: #007bff; /* Fondo azul */*/
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Efecto al pasar el ratón */
+        }
+        
+        .social-links a:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+        }
+
+
+
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            ul {
+                flex-direction: column;
+            }
+
+            a {
+                font-size: 1em;
+            }
+
+            .header {
+                padding: 10px;
+            }
+
+            .main-container {
+                padding: 10px;
+            }
+
+            img {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            .price {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="../images/IMG_2620.PNG" alt="Logo de Country">
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul id="menu">
+            <li><a href="index.html"><em>Home</em></a></li>
+            <li><a href="productos.html"><em>Productos</em></a></li>
+            <li><a href="contacto.html"><em>Contáctanos</em></a></li>
+            <li><a href="clases.html"><em>Clases</em></a></li>
+            <li><a href="carrito.html"><em>Carrito</em></a></li>
+            <li><a href="http://localhost:3000/CountryArt-pages/registrousuario.html"><em>Registrate</em></a></li>
+        </ul>
+    </nav>
+
+    <div id="popup" class="popup">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        
+        <!-- Imagen principal del carrusel -->
+        <div class="carousel-container">
+            <img id="main-image" src="" alt="Imagen principal" class="main-image">
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="../images/WhatsApp Image 2024-10-27 at 7.34.00 PM.jpeg" alt="Producto 19" onclick="changeMainImage(this)">
+                <img class="thumbnail" src="../images/WhatsApp Image 2024-10-27 at 8.19.31 PM (1).jpeg" alt="Producto 2" onclick="changeMainImage(this)">
+                <img class="thumbnail" src="../images/WhatsApp Image 2024-10-27 at 8.19.31 PM (2).jpeg" alt="Producto 3" onclick="changeMainImage(this)">
+                <img class="thumbnail" src="../images/WhatsApp Image 2024-10-27 at 8.19.31 PM.jpeg" alt="Producto 4" onclick="changeMainImage(this)">
+                <img class="thumbnail" src="../images/WhatsApp Image 2024-10-27 at 8.19.32 PM (1).jpeg" alt="Producto 5" onclick="changeMainImage(this)">
+            </div>
+        </div>
+
+        <!-- Descripción del producto -->
+        <div id="popup-description"></div>
+    
+        <!-- Campo de cantidad y botón de comprar -->
+        <div class="product-actions">
+            <label for="quantity">Cantidad:</label>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="buy-button" onclick="addToCart(1)">Agregar al carrito</button>
+        </div>
+    </div>
+    
+    <style>
+        /* Estilo para el popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 15%; /* Baja un poco la ventana */
+            left: 50%;
+            transform: translate(-50%, -15%);
+            width: 60%; /* Reduce el ancho */
+            max-width: 400px; /* Reduce el tamaño máximo */
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px; /* Reduce el padding interno */
+            z-index: 1000;
+        }
+    
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white; /* La 'X' será blanca */
+            background-color: red; /* Fondo rojo */
+            width: 30px; /* Tamaño del cuadro */
+            height: 30px; /* Tamaño del cuadro */
+            display: flex;
+            justify-content: center; /* Centra la 'X' horizontalmente */
+            align-items: center; /* Centra la 'X' verticalmente */
+            border-radius: 50%; /* Hace el cuadro redondeado */
+            border: none; /* Elimina el borde predeterminado */
+            text-align: center; /* Asegura que la 'X' esté centrada */
+        }
+    
+        /* Imagen principal del carrusel */
+        .main-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    
+        /* Contenedor de miniaturas */
+        .thumbnail-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    
+        /* Miniaturas del carrusel */
+        .thumbnail {
+            width: 60px; /* Tamaño reducido */
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.2s;
+        }
+    
+        .thumbnail:hover {
+            border: 2px solid #007BFF; /* Resalta al pasar el mouse */
+        }
+    
+        /* Estilo para acciones del producto */
+        .product-actions {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            color: white; /* Color del texto blanco */
+        }
+    
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block; /* Hace que el botón se comporte como un bloque */
+            margin: 0 auto; /* Centra horizontalmente */
+        } 
+
+        #popup-description {
+            text-align: center; /* Centra el texto horizontalmente */
+            color: white; /* Hace el texto blanco */
+            margin: 0 auto; /* Centra el div horizontalmente */
+            width: 50%; /* Ajusta el ancho según lo necesites */
+        }
+        
+        .buy-button:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <main class="main-container">
+        <h1>Galería de Productos</h1>
+
+        <section class="image-grid">
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.30 PM.jpeg" alt="Producto 2">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.31 PM (1).jpeg" alt="Producto 3">
+                    <div class="image-description">Bombillo Navideño Grande</div>
+                    <div class="image-description">$3.50</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.31 PM.jpeg" alt="Producto 4">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.32 PM (1).jpeg" alt="Producto 5">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.32 PM (2).jpeg" alt="Producto 6">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.32 PM.jpeg" alt="Producto 7">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.33 PM (1).jpeg" alt="Producto 8">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.33 PM (2).jpeg" alt="Producto 9">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.33 PM.jpeg" alt="Producto 10">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.34 PM (1).jpeg" alt="Producto 11">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.34 PM (2).jpeg" alt="Producto 12">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.34 PM (3).jpeg" alt="Producto 13">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.34 PM.jpeg" alt="Producto 14">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.35 PM (1).jpeg" alt="Producto 15">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.35 PM (2).jpeg" alt="Producto 16">
+                    <div class="image-description">Bombillo Navideño Grande</div>
+                    <div class="image-description">$3.50</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.35 PM (3).jpeg" alt="Producto 17">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 8.19.35 PM.jpeg" alt="Producto 18">
+                    <div class="image-description">Bombillo Navideño</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 7.34.00 PM.jpeg" alt="Producto 19">
+                    <div class="image-description">Caja sorpresa (detalles personalizados para cada ocasión)</div>
+                    <div class="image-description">$15.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 7.33.59 PM.jpeg" alt="Producto 20">
+                    <div class="image-description">Caja sorpresa (detalles personalizados para cada ocasión)</div>
+                    <div class="image-description">$15.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp Image 2024-10-27 at 7.33.59 PM (1).jpeg" alt="Producto 21">
+                    <div class="image-description">Mandalas en Piedra</div>
+                    <div class="image-description">$5.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp%20Image%202024-11-28%20at%208.55.18%20PM.jpeg" alt="Producto 22">
+                    <div class="image-description">Bombillo Navideño Personalizado</div>
+                    <div class="image-description">$5.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp%20Image%202024-11-28%20at%208.55.19%20PM%20(1).jpeg" alt="Producto 23">
+                    <div class="image-description">Bombillo Navideño Personalizado</div>
+                    <div class="image-description">$5.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp%20Image%202024-11-28%20at%208.55.19%20PM.jpeg" alt="Producto 24">
+                    <div class="image-description">Bombillo Navideño Personalizado</div>
+                    <div class="image-description">$5.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp%20Image%202024-11-28%20at%208.55.19%20PM%20(2).jpeg" alt="Producto 25">
+                    <div class="image-description">Santa Claus Centro de Mesa</div>
+                    <div class="image-description">$12.00</div>
+                </div>
+                <div class="image-grid-item">
+                    <img src="../images/WhatsApp%20Image%202024-11-28%20at%208.55.20%20PM%20(1).jpeg" alt="Producto 26">
+                    <div class="image-description">Bombillos Navideños</div>
+                    <div class="image-description">$3.00</div>
+                </div>
+            </section>
+    </main>
+
+      <footer class="footer">
+          <p>© 2024 Country Art. Todos los derechos reservados. </p>
+          <div class="social-links">
+              <a href="https://www.instagram.com/countryart_uio/" target="_blank" aria-label="Instagram">Instagram</a>
+              <a href="https://www.facebook.com/nataguzmancountryART?mibextid=ZbWKwL" target="_blank" aria-label="Facebook">Facebook</a>
+          </div>
+          <p>countryart.uio@gmail.com</p>
+      </footer>
+
+      <script>
+        // Función para abrir el popup
+        function openPopup(imgSrc, description) {
+            const popup = document.getElementById('popup');
+            const mainImage = document.getElementById('main-image');
+            const popupDescription = document.getElementById('popup-description');
+    
+            mainImage.src = imgSrc; // Asigna la imagen principal
+            popupDescription.textContent = description; // Asigna la descripción
+            popup.style.display = 'block'; // Muestra el popup
+        }
+    
+        // Función para cerrar el popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none'; // Oculta el popup
+        }
+    
+        // Función para cambiar la imagen principal del carrusel
+        function changeMainImage(thumbnail) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.src = thumbnail.src; // Cambia la fuente de la imagen principal
+        }
+    
+        // Función para agregar el producto al carrito
+        function addToCart(productId) {
+            // Obtener el popup y la cantidad seleccionada
+            const popup = document.getElementById('popup');
+            const mainImage = document.getElementById('main-image');
+            const quantity = parseInt(popup.querySelector('.quantity-input').value); // Se obtiene la cantidad seleccionada desde el popup
+            const description = document.getElementById('popup-description').textContent;
+    
+            // Obtener el precio del producto de algún lugar, este puede ser dinámico
+            const price = 3.00; // Establece un precio predeterminado para el ejemplo, lo puedes cambiar según tus necesidades
+    
+            // Crear un objeto para el producto
+            const productData = {
+                id: productId,
+                name: description, // Utilizamos la descripción como nombre del producto
+                price: price,
+                quantity: quantity,
+                image: mainImage.src
+            };
+    
+            // Obtener el carrito actual del localStorage o crear uno vacío
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Verificar si el producto ya está en el carrito
+            const productIndex = cart.findIndex(item => item.id === productId);
+            if (productIndex > -1) {
+                // Si ya está en el carrito, actualizamos la cantidad
+                cart[productIndex].quantity += quantity;
+            } else {
+                // Si no está, lo agregamos como un nuevo producto
+                cart.push(productData);
+            }
+    
+            // Guardar el carrito actualizado en el localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Mostrar un mensaje de éxito
+            alert(`${productData.name} ha sido agregado al carrito. Cantidad: ${quantity}`);
+        }
+    
+        // Asigna el evento a las imágenes para abrir el popup
+        document.querySelectorAll('.image-grid-item img').forEach((img, index) => {
+            img.addEventListener('click', () => {
+                const description = img.nextElementSibling.textContent; // Obtiene la descripción
+                openPopup(img.src, description); // Abre el popup con la imagen y descripción
+            });
+        });
+    
+        // Cargar el carrito desde localStorage al cargar la página
+        window.onload = function() {
+            // Verifica si ya hay productos en el carrito
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Si hay productos, muestra los productos en el carrito
+            if (cart.length > 0) {
+                // Aquí podrías mostrar los productos en la interfaz, por ejemplo
+                let cartItemsContainer = document.getElementById('cart-items');
+                cartItemsContainer.innerHTML = ''; // Limpiar el contenedor antes de mostrar los productos
+    
+                cart.forEach(item => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('cart-item');
+    
+                    const imgElement = document.createElement('img');
+                    imgElement.src = item.image;
+                    imgElement.alt = item.name;
+    
+                    const nameElement = document.createElement('p');
+                    nameElement.textContent = item.name;
+    
+                    const quantityElement = document.createElement('p');
+                    quantityElement.textContent = `Cantidad: ${item.quantity}`;
+    
+                    const priceElement = document.createElement('p');
+                    priceElement.textContent = `Precio: $${(item.price * item.quantity).toFixed(2)}`;
+    
+                    productDiv.appendChild(imgElement);
+                    productDiv.appendChild(nameElement);
+                    productDiv.appendChild(quantityElement);
+                    productDiv.appendChild(priceElement);
+    
+                    cartItemsContainer.appendChild(productDiv);
+                });
+    
+                // Actualizar el total de la compra
+                const totalPriceElement = document.getElementById('total-price');
+                let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
+            }
+        };
+    </script>
+    
+
+</body>
+
+</html>
